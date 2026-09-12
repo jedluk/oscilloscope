@@ -39,14 +39,22 @@
 }
 
 .presetBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 10px;
-  padding: 6px 8px;
+  padding: 5px 8px;
   text-align: left;
   color: #ddd;
   background: linear-gradient(#3a3a3a, #262626);
   border: 1px solid #111;
   border-radius: 3px;
   cursor: pointer;
+}
+
+.presetBtn svg {
+  flex: none;
+  color: #7fd8c8;
 }
 
 .presetBtn:hover {

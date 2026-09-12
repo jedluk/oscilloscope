@@ -3,6 +3,7 @@ import { presets, presetToChannels } from "../../state/presets";
 import { useScopeStore } from "../../state/store";
 import { downloadCanvasPng } from "../../capture/png";
 import { downloadBlob, recordCanvasWebm, type Recorder } from "../../capture/webm";
+import { LissajousPreview } from "../LissajousPreview";
 import styles from "./Sections.module.css";
 
 function getCanvas(): HTMLCanvasElement | null {
@@ -24,8 +25,10 @@ export function PresetSection({ tourId, exportTourId }: { tourId?: string; expor
               type="button"
               className={styles.presetBtn}
               onClick={() => applyPreset(presetToChannels(p))}
+              title={p.label}
             >
-              {p.label}
+              <LissajousPreview ratio={p.ratio} deltaDeg={p.deltaDeg} />
+              <span>{p.label}</span>
             </button>
           ))}
         </div>
