@@ -1,0 +1,11 @@
+.readout {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #7fd8c8;
+  background: #0a0a0a;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 3px 6px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}

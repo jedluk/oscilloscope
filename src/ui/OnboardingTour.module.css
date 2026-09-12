@@ -1,0 +1,125 @@
+.helpButton {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(#3a3a3a, #262626);
+  color: #a6f3e2;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.helpButton:hover {
+  filter: brightness(1.15);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.hole {
+  position: fixed;
+  border-radius: 10px;
+  box-shadow: 0 0 0 9999px rgba(8, 8, 8, 0.78);
+  outline: 2px solid #7fd8c8;
+  outline-offset: 2px;
+  pointer-events: none;
+  transition:
+    top 0.25s ease,
+    left 0.25s ease,
+    width 0.25s ease,
+    height 0.25s ease;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 1001;
+  background: linear-gradient(#3f3f3f, #2c2c2c);
+  border: 1px solid #111;
+  border-radius: 8px;
+  padding: 14px;
+  color: #e8e8e8;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.tooltipTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #a6f3e2;
+  margin-bottom: 6px;
+}
+
+.tooltipBody {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #dedede;
+}
+
+.tooltipFooter {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stepCount {
+  font-size: 10px;
+  color: #999;
+  font-variant-numeric: tabular-nums;
+}
+
+.tooltipButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.linkBtn {
+  font-size: 11px;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+
+.linkBtn:hover {
+  color: #ccc;
+}
+
+.secondaryBtn {
+  font-size: 11px;
+  padding: 6px 10px;
+  color: #ddd;
+  background: linear-gradient(#4a4a4a, #333);
+  border: 1px solid #111;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  font-size: 11px;
+  padding: 6px 12px;
+  color: #0c1f1b;
+  background: linear-gradient(#9df0da, #52d4b6);
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  filter: brightness(1.05);
+}

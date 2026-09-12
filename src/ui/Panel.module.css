@@ -1,0 +1,65 @@
+.chassis {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#8a8a8a, #6d6d6d 6%, #5a5a5a);
+  color: #e8e8e8;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  box-sizing: border-box;
+  padding: 10px;
+  gap: 8px;
+}
+
+.nameplate {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  padding: 2px 6px;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.screenArea {
+  flex: 3;
+  min-width: 0;
+  padding: 14px;
+  background: linear-gradient(#3d3d3d, #2b2b2b);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 0 0 3px #1a1a1a,
+    0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.controls {
+  flex: 2;
+  max-width: 420px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+@media (max-width: 900px) {
+  .body {
+    flex-direction: column;
+  }
+  .controls {
+    max-width: none;
+  }
+  .screenArea {
+    aspect-ratio: 4 / 3;
+    flex: none;
+  }
+}
