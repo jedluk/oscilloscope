@@ -55,7 +55,9 @@ export interface SerializableScopeState {
 export const useScopeStore = create<ScopeState>()(
   subscribeWithSelector((set) => ({
     ch1: defaultChannelParams({ freq: 60 }),
-    ch2: defaultChannelParams({ freq: 60, phaseOffset: 0.25 }),
+    // Slightly detuned from CH1 (see presets.ts DETUNE) so the default
+    // circle isn't perfectly frame-locked and gently breathes over time.
+    ch2: defaultChannelParams({ freq: 60.108, phaseOffset: 0.25 }),
     ch3: defaultChannelParams({ freq: 40, amp: 0.6 }),
     lfos: [],
     display: defaultDisplayParams(),

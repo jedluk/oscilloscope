@@ -1,58 +1,62 @@
 # Lissajous
 
-Symulator oscyloskopu CRT w trybie XY, rysujący krzywe Lissajous — zbudowany
-jako hołd dla laboratoryjnych ćwiczeń ze strojenia analogowych oscyloskopów
-(referencja wizualna: Tektronix 475A).
+An XY-mode CRT oscilloscope simulator that draws Lissajous curves — built as
+a tribute to the classic lab exercise of tuning an analog scope by hand
+(visual reference: Tektronix 475A).
 
 ![Lissajous scope screenshot](./docs/screenshot.png)
 
-To nie jest wykres funkcji. Wiązka jest symulowana fizycznie: jasność w danym
-punkcie jest odwrotnie proporcjonalna do prędkości wiązki (wolniej = jaśniej,
-dokładnie jak w prawdziwej lampie), obraz ma poświatę fosforu (persistence)
-zanikającą wykładniczo w czasie oraz bloom.
+This isn't a function plot. The beam is physically simulated: brightness at
+any point is inversely proportional to beam speed (slower = brighter, just
+like a real tube), the image has phosphor persistence that decays
+exponentially over time, plus bloom.
 
 ## Stack
 
 - Vite + React + TypeScript
-- three.js — własny, wielopasmowy renderer (bez `@react-three/fiber`):
-  wiązka jako instancjonowane segmenty w shaderze, ping-pong persistence,
-  bloom (separable gaussian), kompozyt z rampą fosforu i siatką
-- zustand — stan aplikacji
-- vitest — testy rdzenia sygnałowego
+- three.js — a custom, multi-pass renderer (no `@react-three/fiber`): the
+  beam is drawn as instanced segments in a shader, persistence is a
+  ping-pong accumulation buffer, bloom is a separable gaussian blur,
+  composited with a phosphor color ramp and graticule
+- zustand — app state
+- vitest — unit tests for the signal core
 
-## Uruchomienie
+## Running it
 
-Wymaga Node ≥20.19 lub ≥22.12 (patrz `.nvmrc`).
+Requires Node ≥20.19 or ≥22.12 (see `.nvmrc`).
 
 ```bash
 npm install
 npm run dev
 ```
 
-Inne komendy:
+Other commands:
 
 ```bash
-npm run build   # build produkcyjny
+npm run build   # production build
 npm run test    # vitest
 npm run lint    # oxlint
 ```
 
-## Jak to działa
+## How it works
 
-- **CH1 / CH2** — dwa generatory (X i Y): kształt fali (sinus/trójkąt/
-  kwadrat/piła), częstotliwość, amplituda, faza, offset DC, zanik obwiedni.
-  Stosunek częstotliwości CH1:CH2 i różnica faz (δ) między nimi decydują
-  o kształcie krzywej.
-- **Display** — Persist (długość smugi), Bright, Beam Width, Bloom/Glow Rad
-  (poświata), Hue (kolor fosforu), Grid, Clean (wyłącza siatkę/winietę),
-  3D (dokłada kanał Z i obrót widoku myszką).
-- **Modulation (LFO)** — modulatory nakładane na dowolny parametr dowolnego
-  kanału (np. wolno pływająca częstotliwość).
-- **Presets** — gotowe klasyczne stosunki (1:1, 1:2, 2:3, 3:4, 5:4).
-- **Export** — PNG (też skrót Cmd/Ctrl+S) i nagrywanie WebM.
-- Stan aplikacji jest kodowany w URL (`#s=...`) — link można wysłać dalej.
-- Gałki: przeciągnij pionowo, scroll, strzałki, dwuklik = reset do wartości
-  domyślnej, Shift = tryb precyzyjny.
+- **CH1 / CH2** — two generators (X and Y): waveform (sine/triangle/square/
+  saw), frequency, amplitude, phase, DC offset, envelope decay. The CH1:CH2
+  frequency ratio and the phase difference (δ) between them determine the
+  curve's shape.
+- **Display** — Persist (trail length), Bright, Beam Width, Bloom/Glow Rad
+  (phosphor glow), Hue (phosphor color), Grid, Clean (hides grid/vignette),
+  3D (adds a Z channel and mouse-orbit view).
+- **Modulation (LFO)** — modulators that can be routed onto any parameter of
+  any channel (e.g. a slowly drifting frequency).
+- **Presets** — classic frequency ratios (1:1, 1:2, 2:3, 3:4, 5:4). CH2 is
+  intentionally detuned by a fraction of a percent so the pattern doesn't
+  freeze on an exact frame lock — it slowly rotates/breathes, like a real
+  pair of analog oscillators that are never perfectly in sync.
+- **Export** — PNG (also bound to Cmd/Ctrl+S) and WebM recording.
+- App state is encoded in the URL (`#s=...`) — the link is shareable.
+- Knobs: drag vertically, scroll wheel, arrow keys, double-click to reset to
+  default, hold Shift for fine control.
 
-Przycisk **?** w prawym dolnym rogu otwiera interaktywny samouczek
-przechodzący po kolejnych sekcjach panelu.
+The **?** button in the bottom-right corner opens an interactive walkthrough
+of the panel.
