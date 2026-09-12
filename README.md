@@ -1,8 +1,7 @@
 # Lissajous
 
 An XY-mode CRT oscilloscope simulator that draws Lissajous curves — built as
-a tribute to the classic lab exercise of tuning an analog scope by hand
-(visual reference: Tektronix 475A).
+a tribute to the classic lab exercise of tuning an analog scope by hand.
 
 ![Lissajous scope screenshot](./docs/screenshot.png)
 

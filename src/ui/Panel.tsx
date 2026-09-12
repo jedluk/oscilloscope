@@ -12,7 +12,7 @@ export function Panel() {
 
   return (
     <div className={styles.chassis}>
-      <div className={styles.nameplate}>LISSAJOUS · 475A-style CRT scope</div>
+      <div className={styles.nameplate}>LISSAJOUS · analog-style CRT scope</div>
       <div className={styles.body}>
         <div className={styles.screenArea} data-tour="screen">
           <Scope />
