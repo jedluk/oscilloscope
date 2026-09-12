@@ -10,33 +10,33 @@ interface TourStep {
 const STEPS: TourStep[] = [
   {
     target: "screen",
-    title: "Ekran CRT",
-    body: "Wiązka rysuje krzywą Lissajous z sygnału X (CH1) i Y (CH2). Im wolniej porusza się w danym miejscu, tym jaśniej świeci — jak w prawdziwej lampie oscyloskopu.",
+    title: "CRT screen",
+    body: "The beam traces a Lissajous curve from the X (CH1) and Y (CH2) signals. The slower it moves at a given point, the brighter it glows — just like a real oscilloscope tube.",
   },
   {
     target: "ch1",
-    title: "CH1 — kanał X",
-    body: "Częstotliwość, kształt fali, faza i amplituda osi poziomej. Gałki: przeciągnij pionowo, scroll, strzałki ↑↓←→, dwuklik = reset, Shift = precyzja.",
+    title: "CH1 — X channel",
+    body: "Frequency, waveform, phase and amplitude of the horizontal axis. Knobs: drag vertically, arrow keys ↑↓←→, double-click to reset, hold Shift for fine control.",
   },
   {
     target: "ch2",
-    title: "CH2 — kanał Y",
-    body: "Stosunek CH1:CH2 decyduje o kształcie (1:1 = elipsa/okrąg, 1:2 = ósemka, 3:4, 5:4...). Faza (δ) między kanałami \"otwiera\" krzywą.",
+    title: "CH2 — Y channel",
+    body: "The CH1:CH2 ratio determines the shape (1:1 = ellipse/circle, 1:2 = figure-eight, 3:4, 5:4...). The phase (δ) between channels \"opens\" the curve.",
   },
   {
     target: "display",
-    title: "Wygląd ekranu",
-    body: "Persist = jak długo świeci ślad wiązki. Bloom/Glow Rad = poświata fosforu. Clean wyłącza siatkę i winietę. 3D dodaje trzeci kanał (Z) i obrót widoku myszką.",
+    title: "Screen look",
+    body: "Persist = how long the beam trail glows. Bloom/Glow Rad = phosphor glow. Clean hides the grid and vignette. 3D adds a third channel (Z) and a mouse-orbit view.",
   },
   {
     target: "presets",
-    title: "Presety",
-    body: "Gotowe klasyczne stosunki Lissajous — kliknij, żeby od razu zobaczyć efekt zamiast kręcić gałkami ręcznie.",
+    title: "Presets",
+    body: "Ready-made classic Lissajous ratios — click one to see the effect instantly instead of dialing it in by hand.",
   },
   {
     target: "export",
-    title: "Eksport",
-    body: "PNG zapisuje bieżącą klatkę, REC WebM nagrywa wideo ekranu. Skrót klawiszowy Cmd/Ctrl+S też zapisuje PNG.",
+    title: "Export",
+    body: "PNG saves the current frame, REC WebM records a video of the screen. Cmd/Ctrl+S is also bound to PNG export.",
   },
 ];
 
@@ -113,12 +113,12 @@ export function OnboardingTour() {
 
   return (
     <>
-      <button type="button" className={styles.helpButton} onClick={restart} aria-label="Pokaż instrukcję obsługi" title="Jak to działa?">
+      <button type="button" className={styles.helpButton} onClick={restart} aria-label="Show walkthrough" title="How does this work?">
         ?
       </button>
 
       {active && rect && (
-        <div className={styles.overlay} role="dialog" aria-label="Instrukcja obsługi" aria-modal="true">
+        <div className={styles.overlay} role="dialog" aria-label="Walkthrough" aria-modal="true">
           <div
             className={styles.hole}
             style={{
@@ -188,15 +188,15 @@ function Tooltip({
         </span>
         <div className={styles.tooltipButtons}>
           <button type="button" className={styles.linkBtn} onClick={onSkip}>
-            Pomiń
+            Skip
           </button>
           {index > 0 && (
             <button type="button" className={styles.secondaryBtn} onClick={onPrev}>
-              Wstecz
+              Back
             </button>
           )}
           <button type="button" className={styles.primaryBtn} onClick={onNext}>
-            {index === total - 1 ? "Gotowe" : "Dalej"}
+            {index === total - 1 ? "Done" : "Next"}
           </button>
         </div>
       </div>

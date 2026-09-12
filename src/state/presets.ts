@@ -8,11 +8,11 @@ export interface Preset {
 }
 
 export const presets: Preset[] = [
-  { id: "circle", label: "1:1  δ=90°  (okrąg)", ratio: [1, 1], deltaDeg: 90 },
-  { id: "diagonal", label: "1:1  δ=0°  (linia)", ratio: [1, 1], deltaDeg: 0 },
-  { id: "ellipse", label: "1:1  δ=45°  (elipsa)", ratio: [1, 1], deltaDeg: 45 },
-  { id: "figure8", label: "1:2  δ=90°  (ósemka)", ratio: [1, 2], deltaDeg: 90 },
-  { id: "trefoil", label: "2:3  δ=90°  (trójlistna pętla)", ratio: [2, 3], deltaDeg: 90 },
+  { id: "circle", label: "1:1  δ=90°  (circle)", ratio: [1, 1], deltaDeg: 90 },
+  { id: "diagonal", label: "1:1  δ=0°  (line)", ratio: [1, 1], deltaDeg: 0 },
+  { id: "ellipse", label: "1:1  δ=45°  (ellipse)", ratio: [1, 1], deltaDeg: 45 },
+  { id: "figure8", label: "1:2  δ=90°  (figure-eight)", ratio: [1, 2], deltaDeg: 90 },
+  { id: "trefoil", label: "2:3  δ=90°  (trefoil loop)", ratio: [2, 3], deltaDeg: 90 },
   { id: "pretzel", label: "3:4  δ=90°", ratio: [3, 4], deltaDeg: 90 },
   { id: "star", label: "5:4  δ=90°", ratio: [5, 4], deltaDeg: 90 },
 ];

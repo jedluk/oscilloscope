@@ -100,15 +100,6 @@ export function Knob({
     if (defaultValue !== undefined) onChange(defaultValue);
   }, [defaultValue, onChange]);
 
-  const onWheel = useCallback(
-    (e: React.WheelEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      const dir = e.deltaY > 0 ? -1 : 1;
-      commit(norm + dir * 0.01 * (e.shiftKey ? 4 : 1));
-    },
-    [norm, commit],
-  );
-
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
       const big = e.shiftKey ? 4 : 1;
@@ -143,7 +134,6 @@ export function Knob({
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onDoubleClick={onDoubleClick}
-        onWheel={onWheel}
         onKeyDown={onKeyDown}
       >
         <div className={styles.knobBody}>

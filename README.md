@@ -55,8 +55,8 @@ npm run lint    # oxlint
   pair of analog oscillators that are never perfectly in sync.
 - **Export** — PNG (also bound to Cmd/Ctrl+S) and WebM recording.
 - App state is encoded in the URL (`#s=...`) — the link is shareable.
-- Knobs: drag vertically, scroll wheel, arrow keys, double-click to reset to
-  default, hold Shift for fine control.
+- Knobs: drag vertically, arrow keys, double-click to reset to default, hold
+  Shift for fine control.
 
 The **?** button in the bottom-right corner opens an interactive walkthrough
 of the panel.

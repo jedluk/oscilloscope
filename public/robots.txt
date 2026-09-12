@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jedluk.github.io/oscilloscope/sitemap.xml
