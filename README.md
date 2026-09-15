@@ -3,6 +3,8 @@
 An XY-mode CRT oscilloscope simulator that draws Lissajous curves — built as
 a tribute to the classic lab exercise of tuning an analog scope by hand.
 
+[Try it now](https://jedluk.github.io/oscilloscope/)
+
 ![Lissajous scope screenshot](./docs/screenshot.png)
 
 This isn't a function plot. The beam is physically simulated: brightness at
